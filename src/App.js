@@ -1,25 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
+import React,{Component} from "react";
+import { BrowserRouter,Route,Switch } from "react-router-dom";
 
-function App() {
+
+
+import Admin from "./components/Admin.Component";
+import Home from "./components/Home.Component";
+import Letan from "./components/letan/Letan.Component";
+
+import Notfound from "./components/Notfound.Component";
+class App extends Component {
+constructor(props){
+  super(props);
+  this.state={
+   
+  }
+  this._isMouted=false;
+}
+
+  render(){
+    
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>    
+    <Switch>
+    <Route exact={true} path='/admin' component={()=><Admin />}/>
+    <Route exact={true} path='/letan' component={()=><Letan />}/>
+    <Route exact path='/' component={()=><Home />} />
+     <Route component={Notfound}/> 
+
+    
+     </Switch>
+   
+    </BrowserRouter>
   );
+}
 }
 
 export default App;

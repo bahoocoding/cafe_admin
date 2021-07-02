@@ -10,6 +10,9 @@
 
 # production
 /build
+/public
+/ckeditor5
+
 
 # misc
 .DS_Store
